@@ -14,7 +14,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^3.0.3",
+    "@pipedream/platform": "workspace:^",
     "inflection": "^3.0.0"
   }
 }

@@ -10,7 +10,7 @@
   ],
   "author": "Pipedream <support@pipedream> (https://pipedream.com)",
   "dependencies": {
-    "@pipedream/platform": "^1.6.0",
+    "@pipedream/platform": "workspace:^",
     "graphql": "^16.8.1",
     "graphql-request": "^3.7.0"
   },

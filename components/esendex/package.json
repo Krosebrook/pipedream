@@ -13,7 +13,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^3.0.3",
+    "@pipedream/platform": "workspace:^",
     "simple-xml2json": "^1.2.3"
   }
 }

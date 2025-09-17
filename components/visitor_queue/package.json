@@ -13,8 +13,8 @@
   "homepage": "https://pipedream.com/apps/visitor-queue",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^1.2.0",
-    "moment": "^2.29.4"
+    "@pipedream/platform": "workspace:^",
+    "moment": "^2.30.1"
   },
   "publishConfig": {
     "access": "public"

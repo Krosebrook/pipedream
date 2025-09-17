@@ -4,13 +4,13 @@
   "description": "Pipedream Temi Components",
   "main": "temi.app.mjs",
   "keywords": [
-		"pipedream",
-		"temi"
+    "pipedream",
+    "temi"
   ],
   "homepage": "https://pipedream.com/apps/temi",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^1.1.1"
+    "@pipedream/platform": "workspace:^"
   },
   "publishConfig": {
     "access": "public"

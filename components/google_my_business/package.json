@@ -7,14 +7,16 @@
     "pipedream",
     "google_my_business"
   ],
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "homepage": "https://pipedream.com/apps/google_my_business",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^1.6.0",
-    "@pipedream/types": "^0.1.6"
+    "@pipedream/platform": "workspace:^",
+    "@pipedream/types": "workspace:^"
   }
 }

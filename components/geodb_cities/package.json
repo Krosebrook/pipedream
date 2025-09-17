@@ -4,13 +4,13 @@
   "description": "Pipedream Geodb_cities Components",
   "main": "geodb_cities.app.mjs",
   "keywords": [
-		"pipedream",
-		"geodb_cities"
+    "pipedream",
+    "geodb_cities"
   ],
   "homepage": "https://pipedream.com/apps/geodb_cities",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^1.4.1"
+    "@pipedream/platform": "workspace:^"
   },
   "publishConfig": {
     "access": "public"

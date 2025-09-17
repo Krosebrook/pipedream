@@ -1,13 +1,9 @@
 {
-	"compilerOptions": {
-		"declaration": true,
-    "module": "NodeNext",
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
     "outDir": "dist"
-	},
-	"include": [
-		"./lib/**/*"
-	]
+  },
+  "include": [
+    "./lib/**/*"
+  ]
 }

@@ -13,7 +13,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^3.0.3",
-    "uuid": "^11.0.5"
+    "@pipedream/platform": "workspace:^",
+    "uuid": "^11.1.0"
   }
 }

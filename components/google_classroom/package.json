@@ -13,7 +13,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^1.6.0",
+    "@pipedream/platform": "workspace:^",
     "googleapis": "^131.0.0"
   }
 }

@@ -4,13 +4,13 @@
   "description": "Pipedream Badger Maps Components",
   "main": "badger_maps.app.mjs",
   "keywords": [
-		"pipedream",
-		"badger_maps"
+    "pipedream",
+    "badger_maps"
   ],
   "homepage": "https://pipedream.com/apps/badger_maps",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^1.2.1"
+    "@pipedream/platform": "workspace:^"
   },
   "publishConfig": {
     "access": "public"

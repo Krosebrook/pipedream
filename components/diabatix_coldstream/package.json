@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "@pipedream/platform": "^1.5.1"
+    "@pipedream/platform": "workspace:^"
   }
 }
-

@@ -13,7 +13,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^3.0.3",
+    "@pipedream/platform": "workspace:^",
     "html-entities-decoder": "^1.0.5"
   }
 }

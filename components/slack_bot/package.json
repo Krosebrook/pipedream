@@ -14,7 +14,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^3.0.0",
+    "@pipedream/platform": "workspace:^",
     "@slack/web-api": "^5.15.0"
   }
 }

@@ -13,9 +13,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^3.1.0",
+    "@pipedream/platform": "workspace:^",
     "bottleneck": "^2.19.5",
-    "form-data": "^4.0.1",
+    "form-data": "^4.0.2",
     "path": "^0.12.7"
   }
 }

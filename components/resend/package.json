@@ -16,7 +16,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^1.5.1",
-    "@pipedream/types": "^0.1.6"
+    "@pipedream/platform": "workspace:^",
+    "@pipedream/types": "workspace:^"
   }
 }

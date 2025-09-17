@@ -22,10 +22,10 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@pipedream/types": "^0.3.0",
+    "@pipedream/types": "workspace:^",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "^20.14.7",
-    "typescript": "^5.5.2"
+    "@types/node": "^20.17.6",
+    "typescript": "^5.6"
   },
   "dependencies": {
     "lodash-es": "^4.17.21",

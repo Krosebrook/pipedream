@@ -13,7 +13,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^1.2.0",
+    "@pipedream/platform": "workspace:^",
     "date-fns": "^2.29.1"
   }
 }

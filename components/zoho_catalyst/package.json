@@ -7,15 +7,17 @@
     "pipedream",
     "zoho_catalyst"
   ],
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "homepage": "https://pipedream.com/apps/zoho_catalyst",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^3.1.0",
-    "@pipedream/types": "^0.1.6",
-    "form-data": "^4.0.0"
+    "@pipedream/platform": "workspace:^",
+    "@pipedream/types": "workspace:^",
+    "form-data": "^4.0.2"
   }
 }

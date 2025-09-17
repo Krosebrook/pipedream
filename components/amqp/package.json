@@ -10,9 +10,9 @@
   "homepage": "https://pipedream.com/apps/amqp",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^1.2.0",
+    "@pipedream/platform": "workspace:^",
     "rhea-promise": "^2.1.0",
-    "uuid": "^8.3.2"
+    "uuid": "^11.1.0"
   },
   "gitHead": "e12480b94cc03bed4808ebc6b13e7fdb3a1ba535",
   "publishConfig": {

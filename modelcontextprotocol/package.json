@@ -10,7 +10,7 @@
   "type": "module",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.10.2",
-    "@pipedream/sdk": "^1.5.4",
+    "@pipedream/sdk": "workspace:^",
     "@supabase/supabase-js": "^2.49.1",
     "cors": "^2.8.5",
     "dd-trace": "^3.58.0",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
-    "@types/node": "^22.15.3",
+    "@types/node": "^20.17.6",
     "dotenv": "^6.0.0"
   }
 }

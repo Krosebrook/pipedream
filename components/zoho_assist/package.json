@@ -7,14 +7,16 @@
     "pipedream",
     "zoho_assist"
   ],
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "homepage": "https://pipedream.com/apps/zoho_assist",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^1.5.1",
-    "@pipedream/types": "^0.1.4"
+    "@pipedream/platform": "workspace:^",
+    "@pipedream/types": "workspace:^"
   }
 }

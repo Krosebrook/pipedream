@@ -10,13 +10,13 @@
   "homepage": "https://pipedream.com/apps/salesforce_rest_api",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^3.1.0",
+    "@pipedream/platform": "workspace:^",
     "fast-xml-parser": "^4.3.2",
     "handlebars": "^4.7.7",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "salesforce-webhooks": "^1.1.11",
-    "uuid": "^9.0.1"
+    "uuid": "^11.1.0"
   },
   "gitHead": "e12480b94cc03bed4808ebc6b13e7fdb3a1ba535",
   "publishConfig": {

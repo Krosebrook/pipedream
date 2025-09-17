@@ -13,8 +13,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^3.0.3",
+    "@pipedream/platform": "workspace:^",
     "json-2-csv": "^5.5.9",
-    "moment": "^2.29.4"
+    "moment": "^2.30.1"
   }
 }

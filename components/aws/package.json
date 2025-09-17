@@ -30,14 +30,14 @@
     "@aws-sdk/lib-storage": "^3.734.0",
     "@aws-sdk/s3-request-presigner": "^3.609.0",
     "@aws-sdk/signature-v4-crt": "^3.731.0",
-    "@pipedream/helper_functions": "^0.3.6",
-    "@pipedream/platform": "^3.1.0",
+    "@pipedream/helper_functions": "workspace:^",
+    "@pipedream/platform": "workspace:^",
     "adm-zip": "^0.5.10",
     "dedent": "^1.5.1",
     "mailparser": "^3.6.6",
     "mailparser-mit": "^1.0.0",
     "nanoid": "^5.0.4",
-    "uuid": "^9.0.1"
+    "uuid": "^11.1.0"
   },
   "gitHead": "e12480b94cc03bed4808ebc6b13e7fdb3a1ba535",
   "publishConfig": {

@@ -13,8 +13,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^3.0.0",
+    "@pipedream/platform": "workspace:^",
     "@pipedream/ramp": "^0.1.2",
-    "uuid": "^10.0.0"
+    "uuid": "^11.1.0"
   }
 }

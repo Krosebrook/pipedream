@@ -10,9 +10,9 @@
   "homepage": "https://pipedream.com/apps/plivo",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^1.2.1",
+    "@pipedream/platform": "workspace:^",
     "plivo": "^4.36.0",
-    "uuid": "^9.0.0"
+    "uuid": "^11.1.0"
   },
   "publishConfig": {
     "access": "public"

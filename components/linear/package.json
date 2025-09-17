@@ -16,6 +16,6 @@
   "dependencies": {
     "@linear/sdk": "^13.0.0",
     "@pipedream/linear_app": "^0.7.3",
-    "@pipedream/platform": "^3.0.3"
+    "@pipedream/platform": "workspace:^"
   }
 }

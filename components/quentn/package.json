@@ -4,13 +4,13 @@
   "description": "Pipedream Quentn Components",
   "main": "quentn.app.mjs",
   "keywords": [
-		"pipedream",
-		"quentn"
+    "pipedream",
+    "quentn"
   ],
   "homepage": "https://pipedream.com/apps/quentn",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^1.2.1"
+    "@pipedream/platform": "workspace:^"
   },
   "publishConfig": {
     "access": "public"

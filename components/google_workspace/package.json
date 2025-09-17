@@ -17,11 +17,11 @@
   },
   "dependencies": {
     "@googleapis/admin": "^6.0.2",
-    "@pipedream/platform": "^3.1.0",
+    "@pipedream/platform": "workspace:^",
     "googleapis": "^108.0.0",
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
-    "@pipedream/types": "^0.1.4"
+    "@pipedream/types": "workspace:^"
   }
 }

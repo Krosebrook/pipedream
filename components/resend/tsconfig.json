@@ -1,15 +1,18 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "lib": ["es2020"],
-    "module": "ES2020",
-    "target": "ES2020",
-    "moduleResolution": "node",
-    "listEmittedFiles": true, // Used as a part of the build task, since we need to pass emitted files to our post-build script
+    "listEmittedFiles": true,
     "composite": true,
-    "outDir": "dist",
-    "allowSyntheticDefaultImports": true
+    "outDir": "dist"
   },
   "allowJs": true,
-  "include": ["app", "actions", "sources", "common"],
-  "exclude": ["dist"]
+  "include": [
+    "app",
+    "actions",
+    "sources",
+    "common"
+  ],
+  "exclude": [
+    "dist"
+  ]
 }

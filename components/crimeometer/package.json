@@ -4,13 +4,13 @@
   "description": "Pipedream Crimeometer Components",
   "main": "crimeometer.app.mjs",
   "keywords": [
-		"pipedream",
-		"crimeometer"
+    "pipedream",
+    "crimeometer"
   ],
   "homepage": "https://pipedream.com/apps/crimeometer",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^1.4.1"
+    "@pipedream/platform": "workspace:^"
   },
   "publishConfig": {
     "access": "public"

@@ -14,8 +14,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@pipedream/platform": "^1.2.0",
+    "@pipedream/platform": "workspace:^",
     "lodash-es": "^4.17.21",
-    "uuid": "^8.3.2"
+    "uuid": "^11.1.0"
   }
 }

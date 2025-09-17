@@ -21,7 +21,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/node": "^20.9.2",
+    "@types/node": "^20.17.6",
     "dtslint": "^4.2.1"
   },
   "scripts": {
@@ -32,6 +32,6 @@
     "test": "npm run build && dtslint dist"
   },
   "dependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "^5.6"
   }
 }

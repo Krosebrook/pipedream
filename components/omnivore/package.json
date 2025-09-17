@@ -10,8 +10,8 @@
   "homepage": "https://pipedream.com/apps/omnivore",
   "author": "Pipedream <support@pipedream.com> (https://pipedream.com/)",
   "dependencies": {
-    "@pipedream/platform": "^1.6.0",
-    "uuid": "^9.0.1"
+    "@pipedream/platform": "workspace:^",
+    "uuid": "^11.1.0"
   },
   "publishConfig": {
     "access": "public"
