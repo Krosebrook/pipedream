@@ -1,28 +1,28 @@
-import { axios } from "@pipedream/platform";
 import drive from "@googleapis/drive";
+import { axios } from "@pipedream/platform";
+import mimeDb from "mime-db";
 import { v4 as uuid } from "uuid";
 import isoLanguages from "./actions/language-codes.mjs";
-import mimeDb from "mime-db";
 const mimeTypes = Object.keys(mimeDb);
 
+import googleMimeTypes from "./actions/google-mime-types.mjs";
 import {
-  GOOGLE_DRIVE_UPDATE_TYPES,
-  MY_DRIVE_VALUE,
-  WEBHOOK_SUBSCRIPTION_EXPIRATION_TIME_MILLISECONDS,
   GOOGLE_DRIVE_FOLDER_MIME_TYPE,
   GOOGLE_DRIVE_GRANTEE_TYPES,
-  GOOGLE_DRIVE_UPLOAD_TYPE_OPTIONS,
   GOOGLE_DRIVE_UPDATE_TYPE_OPTIONS,
+  GOOGLE_DRIVE_UPDATE_TYPES,
+  GOOGLE_DRIVE_UPLOAD_TYPE_OPTIONS,
+  MY_DRIVE_VALUE,
+  WEBHOOK_SUBSCRIPTION_EXPIRATION_TIME_MILLISECONDS,
 } from "./common/constants.mjs";
-import googleMimeTypes from "./actions/google-mime-types.mjs";
 
 import {
-  isMyDrive,
   getDriveId,
+  getFilePaths,
   getListFilesOpts,
+  isMyDrive,
   omitEmptyStringValues,
   toSingleLineString,
-  getFilePaths,
 } from "./common/utils.mjs";
 
 export default {
@@ -127,16 +127,18 @@ export default {
           return [];
         }
         let parentFolders = await Promise.all(
-          file.parents.map((parentId) => this.getFile(parentId, {
+          (file.parents || []).map((parentId) => this.getFile(parentId, {
             fields: "id,name",
           })),
         );
-        return parentFolders.map(({
-          id, name,
-        }) => ({
-          value: id,
-          label: name,
-        }));
+        return parentFolders
+          .filter((folder) => folder?.id)
+          .map(({
+            id, name,
+          }) => ({
+            value: id,
+            label: name,
+          }));
       },
     },
     updateTypes: {
@@ -264,6 +266,39 @@ export default {
           }) => ({
             label,
             value,
+          })) || [],
+          context: {
+            pageToken: nextPageToken,
+          },
+        };
+      },
+    },
+    commentId: {
+      type: "string",
+      label: "Comment ID",
+      description: "The ID of the comment to delete.",
+      async options({
+        fileId, prevContext, driveId,
+      }) {
+        const { pageToken } = prevContext;
+        const {
+          data: {
+            comments, nextPageToken,
+          },
+        } = await this.listSyncComments(
+          driveId,
+          fileId,
+          {
+            pageToken,
+          },
+        );
+
+        return {
+          options: comments?.map(({
+            id, content,
+          }) => ({
+            label: content,
+            value: id,
           })) || [],
           context: {
             pageToken: nextPageToken,
@@ -475,7 +510,7 @@ export default {
     },
     async _listDriveOptions(pageToken, myDrive = true) {
       const {
-        drives,
+        drives = [],
         nextPageToken,
       } = await this.listDrivesInPage(pageToken);
 
@@ -493,10 +528,12 @@ export default {
           ]
           : [];
       for (const d of drives) {
-        options.push({
-          label: d.name,
-          value: d.id,
-        });
+        if (d?.id) {
+          options.push({
+            label: d.name,
+            value: d.id,
+          });
+        }
       }
       return {
         options,
@@ -546,16 +583,18 @@ export default {
      */
     async listFilesOptions(pageToken, extraOpts = {}) {
       const {
-        files,
+        files = [],
         nextPageToken,
       } = await this.listFilesInPage(
         pageToken,
         extraOpts,
       );
-      const options = files.map((file) => ({
-        label: file.name,
-        value: file.id,
-      }));
+      const options = files
+        .filter((file) => file?.id)
+        .map((file) => ({
+          label: file.name,
+          value: file.id,
+        }));
       return {
         options,
         context: {
@@ -611,19 +650,21 @@ export default {
         opts,
       );
       const [
-        { files: folders },
+        { files: folders = [] },
         {
-          files, nextPageToken,
+          files = [], nextPageToken,
         },
       ] = await Promise.all([
         foldersPromise,
         filesPromise,
       ]);
       const filePaths = this.getFilePaths(files, folders);
-      const options = files.map((file) => ({
-        label: filePaths[file.id],
-        value: file.id,
-      }));
+      const options = files
+        .filter((file) => file?.id)
+        .map((file) => ({
+          label: filePaths[file.id],
+          value: file.id,
+        }));
       return {
         options,
         context: {
@@ -680,6 +721,51 @@ export default {
 
         opts.pageToken = nextPageToken;
       }
+    },
+    listSyncComments(driveId, fileId, args = {}) {
+      const drive = this.drive();
+      return drive.comments.list({
+        driveId,
+        fileId,
+        fields: "*",
+        ...args,
+      });
+    },
+    createComment(content, fileId) {
+      const drive = this.drive();
+      return drive.comments.create({
+        fileId,
+        requestBody: {
+          content,
+        },
+        fields: "*",
+      });
+    },
+    deleteComment(commentId, fileId) {
+      const drive = this.drive();
+      return drive.comments.delete({
+        fileId,
+        commentId,
+        fields: "*",
+      });
+    },
+    createCommentReply(fileId, commentId, requestBody) {
+      const drive = this.drive();
+      return drive.replies.create({
+        fileId,
+        commentId,
+        requestBody,
+        fields: "*",
+      });
+    },
+    updateComment(commentId, fileId, data) {
+      const drive = this.drive();
+      return drive.comments.update({
+        fileId,
+        commentId,
+        requestBody: data,
+        fields: "*",
+      });
     },
     _makeWatchRequestBody(id, address) {
       const expiration =

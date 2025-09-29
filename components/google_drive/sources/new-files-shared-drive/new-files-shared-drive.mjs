@@ -1,13 +1,13 @@
+import { DEFAULT_POLLING_SOURCE_TIMER_INTERVAL } from "@pipedream/platform";
 import googleDrive from "../../google_drive.app.mjs";
 import sourceComponent from "../new-files-instant/new-files-instant.mjs";
 import sampleEmit from "../new-files-instant/test-event.mjs";
-import { DEFAULT_POLLING_SOURCE_TIMER_INTERVAL } from "@pipedream/platform";
 
 export default {
   key: "google_drive-new-files-shared-drive",
   name: "New Files (Shared Drive)",
   description: "Emit new event when a new file is added in your shared Google Drive",
-  version: "0.0.3",
+  version: "0.1.1",
   type: "source",
   dedupe: "unique",
   props: {
@@ -30,6 +30,18 @@ export default {
       optional: false,
     },
     folders: sourceComponent.props.folders,
+    includeLink: {
+      label: "Include Link",
+      type: "boolean",
+      description: "Upload file to your File Stash and emit temporary download link to the file. Google Workspace documents will be converted to PDF. See [the docs](https://pipedream.com/docs/connect/components/files) to learn more about working with files in Pipedream.",
+      default: false,
+      optional: true,
+    },
+    dir: {
+      type: "dir",
+      accessMode: "write",
+      optional: true,
+    },
   },
   hooks: {
     async deploy() {

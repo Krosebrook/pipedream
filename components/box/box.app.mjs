@@ -129,7 +129,9 @@ export default {
       type: "string",
       label: "Target",
       description: "The target item that will be used by webhooks.",
-      async options({ prevContext }) {
+      async options({
+        prevContext, type,
+      }) {
         const {
           marker,
           queue,
@@ -154,7 +156,7 @@ export default {
                 ...resp.entries.filter((e) => e.type == "folder").map((e) => e.id),
               ],
             },
-            options: resp.entries.map((e) => ({
+            options: resp.entries.filter((e) => !type || e.type == type).map((e) => ({
               value: JSON.stringify({
                 id: e.id,
                 type: e.type,
@@ -185,7 +187,7 @@ export default {
                   ...innerResp.entries.filter((e) => e.type == "folder").map((e) => e.id),
                 ],
               },
-              options: innerResp.entries.map((e) => ({
+              options: innerResp.entries.filter((e) => !type || e.type == type).map((e) => ({
                 value: JSON.stringify({
                   id: e.id,
                   type: e.type,
@@ -316,6 +318,13 @@ export default {
       return this._makeRequest({
         method: "GET",
         path: `/files/${fileId}/comments`,
+        ...args,
+      });
+    },
+    async createSignRequest(args = {}) {
+      return this._makeRequest({
+        method: "POST",
+        path: "/sign_requests",
         ...args,
       });
     },
